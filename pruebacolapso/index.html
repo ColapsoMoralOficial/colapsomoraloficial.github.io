@@ -18,7 +18,7 @@
 
         * {
             box-sizing: border-box;
-            user-select: none; /* Evita que seleccionen texto para más inmersión */
+            user-select: none; 
         }
 
         body {
@@ -28,16 +28,17 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            padding-bottom: 50px;
         }
 
-        /* --- EFECTO CRT (MONITOR VIEJO) --- */
+        /* --- EFECTO CRT (CORREGIDO PARA NO BLOQUEAR CLICS) --- */
         body::before {
             content: " ";
             display: block;
             position: fixed;
             top: 0; left: 0; bottom: 0; right: 0;
             background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            z-index: 999;
+            z-index: -1; /* LO MANDAMOS AL FONDO PARA QUE NO ESTORBE */
             background-size: 100% 2px, 3px 100%;
             pointer-events: none;
         }
@@ -47,6 +48,8 @@
             text-align: center;
             padding: 60px 20px;
             border-bottom: 2px solid #222;
+            position: relative;
+            z-index: 10;
         }
 
         .logo {
@@ -60,7 +63,6 @@
             text-transform: uppercase;
             margin: 10px 0;
             letter-spacing: 5px;
-            position: relative;
         }
 
         /* --- CONTENEDOR PRINCIPAL --- */
@@ -68,9 +70,11 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            position: relative;
+            z-index: 10; /* PARA QUE ESTÉ ENCIMA DEL FONDO */
         }
 
-        /* --- SECCIONES DESPLEGABLES (ACORDEÓN) --- */
+        /* --- SECCIONES DESPLEGABLES --- */
         .section-trigger {
             background: #111;
             border: 1px solid #333;
@@ -164,7 +168,7 @@
             font-size: 0.9rem;
         }
 
-        /* --- BOTÓN DE COMPRA (STRIPE) --- */
+        /* --- BOTÓN DE COMPRA --- */
         .btn-buy {
             background: transparent;
             border: 1px solid var(--accent-cyan);
@@ -184,7 +188,6 @@
             box-shadow: 0 0 15px var(--accent-cyan);
         }
 
-        /* Animación de Explosión al Click */
         .btn-buy.exploding {
             animation: glitch-anim 0.2s infinite;
             background: red !important;
@@ -192,17 +195,14 @@
             border-color: red !important;
         }
 
-        /* --- SECCIONES ESPECIALES --- */
-        
-        /* Premium ArToy */
+        /* Premium & Manifesto */
         .premium-card {
             border: 2px solid var(--accent-gold);
             background: #1a1500;
-            grid-column: span 2; /* Ocupa 2 espacios */
+            grid-column: span 2; 
         }
         .premium-card .product-title { color: var(--accent-gold); }
 
-        /* Manifiesto */
         .manifesto-text {
             font-size: 0.9rem;
             line-height: 1.6;
@@ -219,6 +219,8 @@
             border-top: 1px solid #333;
             color: #444;
             font-size: 0.8rem;
+            position: relative;
+            z-index: 10;
         }
 
         .signature {
@@ -230,7 +232,6 @@
             transform: rotate(-2deg);
         }
 
-        /* --- ANIMACIONES --- */
         @keyframes glitch-anim {
             0% { transform: translate(0) }
             20% { transform: translate(-2px, 2px) }
@@ -245,7 +246,7 @@
 <body>
 
     <header>
-        <img src="logo.png" class="logo" alt="CM Logo">
+        <img src="../logo.png" class="logo" alt="CM Logo">
         <h1>Colapso Moral</h1>
         <p>LA ROPA NO ACABA EN EL EXCUSADO</p>
     </header>
@@ -269,14 +270,106 @@
                         <span class="price">$ MXN</span>
                         <button class="btn-buy">COMPRAR</button>
                     </div>
-                    <div class="product-card">
-                        <div class="product-placeholder">[IMG: COLAPSO]</div>
-                        <span class="product-title">Serie Colapso</span>
-                        <span class="price">$ MXN</span>
-                        <button class="btn-buy">COMPRAR</button>
+                </div>
+            </div>
+        </div>
+
+        <button class="section-trigger">Tufting / Tapetes</button>
+        <div class="panel">
+            <div class="panel-content">
+                <p>Tapetes del fin del mundo. Hechos a mano.</p>
+                <div class="product-grid">
+                    <div class="product-card" style="width: 100%">
+                        <div class="product-placeholder" style="height: 200px;">[IMG: RUG_001]</div>
+                        <span class="product-title">Diseño Personalizado</span>
+                        <button class="btn-buy">COTIZAR</button>
                     </div>
-                     <div class="product-card">
-                        <div class="product-placeholder">[IMG: ORÍGENES]</div>
-                        <span class="product-title">Serie Orígenes</span>
-                        <span class="price">$ MXN</span>
-                        <button class="btn-
+                </div>
+            </div>
+        </div>
+
+        <button class="section-trigger" style="border-color: var(--accent-gold); color: var(--accent-gold);">ArToys Collection</button>
+        <div class="panel">
+            <div class="panel-content">
+                <div class="product-grid">
+                    <div class="product-card premium-card">
+                        <div class="product-placeholder" style="background: #332b00; color: #ffd700;">[IMG: OSO_MASTER]</div>
+                        <span class="product-title">DON COLAPSOSO</span>
+                        <span class="price" style="color: #ffd700;">EDICIÓN LIMITADA</span>
+                        <p style="font-size: 0.7rem; color: #aaa;">Incluye certificado NFC de autenticidad.</p>
+                        <button class="btn-buy" style="border-color: gold; color: gold;">ADQUIRIR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="section-trigger">¿Por qué Colapso Moral?</button>
+        <div class="panel">
+            <div class="panel-content">
+                <div class="manifesto-text">
+                    <p>> INICIANDO MANIFIESTO...</p>
+                    <p>No somos Diarrea Social. No vendemos por vender. Creemos en la estética de la decadencia.</p>
+                    <br>
+                    <a href="#" style="color: var(--accent-red);">[LEER MANIFIESTO COMPLETO]</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Registro © 2026 Colapso Moral.</p>
+        <p>Sistema Operativo v2.0 // Monterrey, NL.</p>
+        <span class="signature">M&B</span>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            console.log("Sistema Colapso Iniciado...");
+
+            // Lógica del Acordeón
+            var acc = document.getElementsByClassName("section-trigger");
+            
+            for (var i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                    // Alternar clase activa
+                    this.classList.toggle("active");
+                    
+                    // Encontrar el panel siguiente
+                    var panel = this.nextElementSibling;
+                    
+                    // Abrir o cerrar
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            }
+
+            // Lógica de Botones
+            var buyBtns = document.querySelectorAll('.btn-buy');
+            buyBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault(); 
+                    e.stopPropagation(); // Evita que cierre el acordeón si está dentro
+                    
+                    this.classList.add('exploding');
+                    var originalText = this.innerText;
+                    this.innerText = "ERR_404"; 
+                    
+                    if (navigator.vibrate) navigator.vibrate(200);
+
+                    setTimeout(() => {
+                        this.classList.remove('exploding');
+                        this.innerText = "AGREGADO"; 
+                        this.style.borderColor = "#00ff00";
+                        this.style.color = "#00ff00";
+                    }, 800);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
