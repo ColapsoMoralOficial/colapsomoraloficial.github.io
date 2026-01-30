@@ -1,0 +1,109 @@
+<style>
+    /* CONTENEDOR DE LA LISTA */
+    .owners-log {
+        background: #000;
+        border: 2px solid #333;
+        padding: 20px;
+        font-family: 'Courier Prime', monospace;
+        max-width: 600px;
+        margin: 0 auto; /* Centrado */
+    }
+
+    .owners-log h3 {
+        color: #fff;
+        border-bottom: 2px solid #ff003c; /* Rojo Colapso */
+        padding-bottom: 10px;
+        margin-top: 0;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    /* LA LISTA EN SÍ */
+    .list-grid {
+        display: grid;
+        grid-template-columns: 1fr; /* Una columna en cel, dos en PC si quieres */
+        gap: 10px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .list-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px;
+        border-bottom: 1px dashed #222;
+        font-size: 0.9rem;
+    }
+
+    /* ESTILO PARA LOS VENDIDOS */
+    .sold {
+        color: #666; /* Gris apagado */
+        text-decoration: line-through; /* Tachado opcional, o solo gris */
+    }
+    .sold .name {
+        color: #aaa; /* El nombre se ve un poco más claro */
+        text-decoration: none; /* El nombre no se tacha, solo el número */
+        font-weight: bold;
+    }
+
+    /* ESTILO PARA LOS DISPONIBLES */
+    .available {
+        color: #ff003c; /* Rojo neón */
+        animation: pulse 2s infinite;
+    }
+    
+    .available .cta {
+        font-style: italic;
+        text-transform: uppercase;
+    }
+
+    /* Animación de latido para los disponibles */
+    @keyframes pulse {
+        0% { opacity: 1; text-shadow: 0 0 5px red; }
+        50% { opacity: 0.6; text-shadow: none; }
+        100% { opacity: 1; text-shadow: 0 0 5px red; }
+    }
+</style>
+
+<div class="owners-log">
+    <h3>/// BITÁCORA DE DUEÑOS: LUCIFER</h3>
+    
+    <ul class="list-grid">
+        <li class="list-item sold">
+            <span>#01</span> <span class="name">Gerardo Martinez</span>
+        </li>
+        <li class="list-item sold">
+            <span>#02</span> <span class="name">Karla Monsivais S.</span>
+        </li>
+        <li class="list-item sold">
+            <span>#03</span> <span class="name">Fátima C.</span>
+        </li>
+        <li class="list-item sold">
+            <span>#04</span> <span class="name">Supercrack600</span>
+        </li>
+        <li class="list-item sold">
+            <span>#05</span> <span class="name">El Tío del Oxxo</span>
+        </li>
+
+        <li class="list-item available">
+            <span>#06</span> <span class="cta">[PIEL DISPONIBLE]</span>
+        </li>
+        <li class="list-item available">
+            <span>#07</span> <span class="cta">[ESPERANDO SUFRIMIENTO]</span>
+        </li>
+        <li class="list-item available">
+            <span>#18</span> <span class="cta">[¿LE TIENES MIEDO?]</span>
+        </li>
+        <li class="list-item available">
+            <span>#19</span> <span class="cta">[SOLO EFECTIVO O ALMAS]</span>
+        </li>
+        <li class="list-item available">
+            <span>#20</span> <span class="cta">[FALTAN HUEVOS]</span>
+        </li>
+    </ul>
+
+    <p style="text-align: center; font-size: 0.7rem; color: #444; margin-top: 20px;">
+        *Al comprar, tu nombre quedará grabado en el blockchain del infierno (este HTML).
+    </p>
+</div>
