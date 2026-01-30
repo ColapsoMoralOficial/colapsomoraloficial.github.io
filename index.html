@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colapso Moral | No seré...</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace; /* Estilo Hacker/Máquina */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        /* --- ESTILO DEL LOGO (Adaptado para tu PNG) --- */
+        .profile-pic {
+            width: 140px; /* Tamaño imponente */
+            height: auto;
+            margin-bottom: 20px;
+            /* Sin borde ni fondo gris, para que se vea limpio */
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-pic:hover {
+            transform: scale(1.05) rotate(-2deg); /* Pequeño movimiento al pasar mouse */
+        }
+
+        /* --- TÍTULO CON EFECTO GLITCH/ERROR --- */
+        h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 10px;
+            position: relative;
+            cursor: default;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* El efecto de temblor y colores rotos al pasar el mouse */
+        h1:hover {
+            animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+            color: #ff0000; /* Se pone rojo sangre */
+            text-shadow: 3px 3px #00fff2, -3px -3px #ff00de; /* Efecto 3D Roto (Cian/Magenta) */
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0) }
+            20% { transform: translate(-3px, 3px) }
+            40% { transform: translate(-3px, -3px) }
+            60% { transform: translate(3px, 3px) }
+            80% { transform: translate(3px, -3px) }
+            100% { transform: translate(0) }
+        }
+
+        /* --- TEXTO SECUNDARIO --- */
+        p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        /* --- BOTONES (ENLACES) --- */
+        .link-container {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            background-color: #0a0a0a; /* Casi negro */
+            color: #fff;
+            padding: 18px;
+            text-align: center;
+            text-decoration: none;
+            border: 1px solid #333;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: center; /* Centrar texto e icono */
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn:hover {
+            background-color: #ffffff; /* Invertir colores */
+            color: #000000;
+            border-color: #ffffff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Resplandor blanco */
+            transform: scale(1.02);
+        }
+
+        /* --- PIE DE PÁGINA --- */
+        .footer {
+            margin-top: auto; /* Empuja el footer al fondo */
+            padding-top: 50px;
+            font-size: 0.7rem;
+            color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="logo.png.png" class="profile-pic" alt="Logo Colapso Moral">
+
+    <h1>Colapso Moral</h1>
+    
+    <p>💀PROXIMAMENTE💀</p>
+
+    <div class="link-container">
+        <a href="#" class="btn">🔥 Ver Colección 2026</a>
+        <a href="https://wa.me/521234567890" class="btn">💀 Pedidos WhatsApp</a>
+        <a href="#" class="btn">📍 Ubicación Secreta</a>
+        <a href
