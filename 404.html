@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página No Encontrada</title>
+    <style>
+        /* ESTILO POR DEFECTO (COLAPSO MORAL) */
+        :root {
+            --bg-color: #000;
+            --text-color: #fff;
+            --accent-color: #ff0000;
+            --font-main: 'Courier New', monospace;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: all 0.3s ease;
+        }
+
+        h1 { font-size: 3rem; margin-bottom: 10px; text-transform: uppercase; }
+        p { font-size: 1.2rem; }
+        
+        .btn {
+            margin-top: 30px;
+            padding: 10px 20px;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        /* CLASE PARA VIKINGOS (Se activa con JS) */
+        body.vikingos-theme {
+            --bg-color: #1a1a1a;
+            --text-color: #d4af37; /* Dorado */
+            --accent-color: #d4af37;
+            --font-main: serif; /* Letra más antigua */
+            background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png'); /* Textura sutil */
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1 id="error-title">ERROR 404</h1>
+    <p id="error-message">Te has perdido en el vacío.</p>
+    <a href="/" id="back-btn" class="btn">REGRESAR AL INICIO</a>
+
+    <script>
+        // 1. DETECTAR DÓNDE ESTÁ EL USUARIO
+        var currentPath = window.location.pathname;
+
+        // ELEMENTOS A MODIFICAR
+        var body = document.body;
+        var title = document.getElementById('error-title');
+        var message = document.getElementById('error-message');
+        var btn = document.getElementById('back-btn');
+
+        // 2. LÓGICA DEL CAMALEÓN
+        if (currentPath.includes('/vikingos')) {
+            // --- MODO VIKINGOS ---
+            body.classList.add('vikingos-theme'); // Activa los estilos dorados
+            title.innerText = "¡Ruta Equivocada, Guerrero!";
+            message.innerText = "Esta página no existe en el Valhalla.";
+            btn.innerText = "Volver a la Barbería";
+            btn.href = "/vikingos"; // Lo regresa a SU página, no a la tuya
+        } 
+        
+        else if (currentPath.includes('/tacos')) {
+            // --- MODO TACOS (Ejemplo futuro) ---
+            // Aquí podrías poner estilos para tacos
+            title.innerText = "¿Buscabas Salsa?";
+            message.innerText = "Aquí no hay nada, joven.";
+            btn.innerText = "Regresar al Menú";
+            btn.href = "/tacos";
+        }
+
+        else {
+            // --- MODO COLAPSO MORAL (Por defecto) ---
+            // Se queda como está en el HTML original
+        }
+    </script>
+
+</body>
+</html>
